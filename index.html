@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Threat Scanner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 URL Threat Scanner</h1>
+            <p class="subtitle">Analyze URLs for potential security threats</p>
+        </header>
+
+        <main>
+            <section class="scanner-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="urlInput" 
+                        placeholder="Enter URL to scan (e.g., https://example.com)"
+                        aria-label="URL input"
+                    >
+                    <button id="scanButton" class="scan-btn">
+                        <span class="btn-text">Scan URL</span>
+                        <span class="spinner" style="display: none;"></span>
+                    </button>
+                </div>
+                <p class="error-message" id="errorMessage"></p>
+            </section>
+
+            <section class="report-section" id="reportSection" style="display: none;">
+                <div class="report-header">
+                    <h2>Threat Report</h2>
+                    <div class="scanned-url">
+                        <strong>Scanned URL:</strong> <span id="scannedUrl"></span>
+                    </div>
+                </div>
+
+                <div class="threat-score">
+                    <div class="score-circle" id="scoreCircle">
+                        <span class="score-value" id="scoreValue">0</span>
+                        <span class="score-label">/ 100</span>
+                    </div>
+                    <div class="score-info">
+                        <h3 id="threatLevel">Analyzing...</h3>
+                        <p id="threatDescription"></p>
+                    </div>
+                </div>
+
+                <div class="threat-categories">
+                    <div class="category-card" id="malwareCard">
+                        <div class="category-icon">🦠</div>
+                        <div class="category-content">
+                            <h4>Malware Detection</h4>
+                            <p class="category-status" id="malwareStatus">Checking...</p>
+                            <div class="category-details" id="malwareDetails"></div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" id="phishingCard">
+                        <div class="category-icon">🎣</div>
+                        <div class="category-content">
+                            <h4>Phishing Analysis</h4>
+                            <p class="category-status" id="phishingStatus">Checking...</p>
+                            <div class="category-details" id="phishingDetails"></div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" id="reputationCard">
+                        <div class="category-icon">⭐</div>
+                        <div class="category-content">
+                            <h4>Domain Reputation</h4>
+                            <p class="category-status" id="reputationStatus">Checking...</p>
+                            <div class="category-details" id="reputationDetails"></div>
+                        </div>
+                    </div>
+
+                    <div class="category-card" id="sslCard">
+                        <div class="category-icon">🔐</div>
+                        <div class="category-content">
+                            <h4>SSL/TLS Security</h4>
+                            <p class="category-status" id="sslStatus">Checking...</p>
+                            <div class="category-details" id="sslDetails"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <h3>Technical Details</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <span class="info-label">Domain Age:</span>
+                            <span class="info-value" id="domainAge">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">IP Address:</span>
+                            <span class="info-value" id="ipAddress">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Country:</span>
+                            <span class="info-value" id="country">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Last Scanned:</span>
+                            <span class="info-value" id="lastScanned">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="scanAgainButton" class="secondary-btn">Scan Another URL</button>
+                    <button id="exportButton" class="secondary-btn">Export Report</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 URL Threat Scanner.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
